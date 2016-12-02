@@ -1,28 +1,60 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+  <div>
+    <header class="app-header" style="display:none;" v-show="appshow">
+
+    </header>
+    <section class="app-content" style="display:none;" v-show="appshow">
+      <router-view></router-view>
+    </section>
+    <footer class="app-footer" style="display:none;" v-show="appshow">
+      <nav-bar></nav-bar>
+    </footer>
+    <!-- 欢迎页 -->
+    <transition name="welcome">
+      <div class="welcome"  v-show="isWelcome"></div>
+    </transition>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello'
+import navBar from 'components/nav-bar'
+require('assets/css/common.less')
+require('assets/css/base.less')
 
 export default {
   name: 'app',
+  data () {
+    return {
+      isWelcome: true,
+      appshow: false
+    }
+  },
   components: {
-    Hello
+    navBar
+  },
+  created () {
+    this.appshow = true
+    setTimeout(() => {
+      this.isWelcome = false
+    }, 1500)
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.welcome {
+  position: absolute;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background: url('./assets/logo.png') #fff no-repeat center center;
+}
+.welcome-leave-active {
+  transition: opacity .5s
+}
+.welcome-leave-active {
+  opacity: 0
 }
 </style>

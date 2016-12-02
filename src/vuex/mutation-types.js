@@ -1,0 +1,1 @@
+export const GET_NAVITEMS = 'GET_NAVITEMS'
