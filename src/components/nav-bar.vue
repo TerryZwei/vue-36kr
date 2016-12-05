@@ -1,6 +1,6 @@
 <template>
-  <nav>
-    <dl v-for="item in navItems">
+  <nav class="footer_nav">
+    <dl v-for="(item, index) in navItems" :class="{nav_color: (navSelectIndex === index)}">
       <dt class="iconfont" :class="item.iconClass"></dt>
       <dd v-text="item.text"></dd>
     </dl>
@@ -16,7 +16,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      navItems: 'navItems'
+      navItems: 'navItems',
+      navSelectIndex: 'getNavSelectIndex'
     })
   },
   created () {
@@ -25,6 +26,29 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="less" scoped>
+.footer_nav {
+  display: flex;
+  height: 60px;
+  border-top: 1px solid #F8F8F8;
+  >dl {
+    flex: 1;
+    text-align: center;
+    margin: 12px 0 0 0;
+    color: #C2CED8;
+    dt {
+      font-size: 26px;
+      font-weight: bold;
+      //#3C83EF
+    }
+    dd {
+      margin: 0;
+      padding: 2px 0 0 0;
+      font-size: 11px;
+    }
+  }
+  .nav_color {
+    color: #3C83EF;
+  }
+}
 </style>

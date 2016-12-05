@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="app-header" style="display:none;" v-show="appshow">
-
+      <nav-header></nav-header>
     </header>
     <section class="app-content" style="display:none;" v-show="appshow">
       <router-view></router-view>
@@ -18,6 +18,7 @@
 
 <script>
 import navBar from 'components/nav-bar'
+import navHeader from 'components/nav-header'
 require('assets/css/common.less')
 require('assets/css/base.less')
 
@@ -30,7 +31,8 @@ export default {
     }
   },
   components: {
-    navBar
+    navBar,
+    navHeader
   },
   created () {
     this.appshow = true
@@ -42,6 +44,28 @@ export default {
 </script>
 
 <style scoped>
+.app-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9;
+  height: 45px;
+}
+.app-content {
+  position: relative;
+  margin: 45px 0 50px 0;
+}
+
+.app-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 60px;
+  z-index: 9;
+}
 .welcome {
   position: absolute;
   z-index: 999;
