@@ -1,4 +1,4 @@
-import { GET_NAVITEMS, GET_HOMESWIPERITEMS } from './mutation-types'
+import { GET_NAVITEMS, GET_HOMESWIPERITEMS, GET_NEWSLIST } from './mutation-types'
 
 export default {
   getNavItems ({ commit }) {
@@ -6,5 +6,8 @@ export default {
   },
   getHomeSwiperItems ({ commit }) {
     commit(GET_HOMESWIPERITEMS)
+  },
+  getNewsList ({ commit }) {
+    commit(GET_NEWSLIST)
   }
 }

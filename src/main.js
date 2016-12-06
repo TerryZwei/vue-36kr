@@ -4,11 +4,13 @@ import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 
 import store from './vuex'
+import filters from './filters'
 import App from './App'
 import Home from './views/home'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
+filters(Vue)
 
 const routes = [
   {

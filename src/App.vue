@@ -4,7 +4,11 @@
       <nav-header></nav-header>
     </header>
     <section class="app-content" style="display:none;" v-show="appshow">
-      <router-view></router-view>
+      <transition name='view1'>
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
+      </transition>
     </section>
     <footer class="app-footer" style="display:none;" v-show="appshow">
       <nav-bar></nav-bar>
@@ -58,13 +62,14 @@ export default {
 }
 
 .app-footer {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   left: 0;
   overflow: hidden;
   width: 100%;
   height: 60px;
   z-index: 9;
+  background: #fff;
 }
 .welcome {
   position: absolute;
@@ -79,6 +84,12 @@ export default {
   transition: opacity .5s
 }
 .welcome-leave-active {
+  opacity: 0
+}
+.view1-enter-active {
+  transition: opacity .2s
+}
+.view1-enter{
   opacity: 0
 }
 </style>
