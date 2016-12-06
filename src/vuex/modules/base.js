@@ -1,8 +1,7 @@
 import { GET_NAVITEMS } from '../mutation-types'
 
 const state = {
-  navItems: [],
-  navSelectIndex: 0
+  navItems: []
 }
 
 const mutations = {

@@ -5,7 +5,7 @@ import VueRouter from 'vue-router'
 
 import store from './vuex'
 import App from './App'
-import Home from './views/Home'
+import Home from './views/home'
 
 Vue.use(VueRouter)
 Vue.use(VueResource)
@@ -14,6 +14,24 @@ const routes = [
   {
     path: '/',
     component: Home
+  },
+  {
+    path: '/found',
+    component: (resolve) => {
+      require(['./views/found'], resolve)
+    }
+  },
+  {
+    path: '/me',
+    component: (resolve) => {
+      require(['./views/me'], resolve)
+    }
+  },
+  {
+    path: '/focus',
+    component: (resolve) => {
+      require(['./views/focus'], resolve)
+    }
   }
 ]
 
