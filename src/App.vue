@@ -3,7 +3,7 @@
     <header class="app-header" style="display:none;" v-show="appshow">
       <nav-header></nav-header>
     </header>
-    <section class="app-content" style="display:none;" v-show="appshow">
+    <section class="app-content" style="display:none;" v-show="appshow" id="content">
       <transition name='view1'>
         <keep-alive>
           <router-view></router-view>
@@ -31,7 +31,8 @@ export default {
   data () {
     return {
       isWelcome: true,
-      appshow: false
+      appshow: false,
+      contentHeight: 0
     }
   },
   components: {
@@ -49,16 +50,21 @@ export default {
 
 <style scoped>
 .app-header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 9;
   height: 45px;
+  background: #fff;
 }
 .app-content {
-  position: relative;
-  margin: 45px 0 50px 0;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  right: 0;
+  bottom: 60px;
+  z-index: 8;
 }
 
 .app-footer {
@@ -72,12 +78,14 @@ export default {
   background: #fff;
 }
 .welcome {
-  position: absolute;
+  position: fixed;
   z-index: 999;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
+  bottom: 0;
+  right: 0;
   background: url('./assets/logo.png') #fff no-repeat center center;
 }
 .welcome-leave-active {

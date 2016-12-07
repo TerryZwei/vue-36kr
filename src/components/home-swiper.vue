@@ -19,6 +19,7 @@ export default {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
+        initialSlide: 1,
         effect: 'coverflow',
         grabCursor: true,
         centeredSlides: true,
