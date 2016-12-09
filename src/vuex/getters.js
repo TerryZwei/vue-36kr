@@ -7,5 +7,8 @@ export default {
   },
   newsList ({ home }) {
     return home.newsList
+  },
+  fastNews ({ home }) {
+    return home.fastNews
   }
 }

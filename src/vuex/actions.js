@@ -1,4 +1,4 @@
-import { GET_NAVITEMS, GET_HOMESWIPERITEMS, GET_NEWSLIST } from './mutation-types'
+import { GET_NAVITEMS, GET_HOMESWIPERITEMS, GET_NEWSLIST, GET_FASTNEWS } from './mutation-types'
 
 export default {
   getNavItems ({ commit }) {
@@ -9,5 +9,8 @@ export default {
   },
   getNewsList ({ commit }) {
     commit(GET_NEWSLIST)
+  },
+  getFastNews ({ commit }) {
+    commit(GET_FASTNEWS)
   }
 }

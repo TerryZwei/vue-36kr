@@ -59,12 +59,8 @@ export default {
   background: #fff;
 }
 .app-content {
-  position: absolute;
-  top: 45px;
-  left: 0;
-  right: 0;
-  bottom: 60px;
-  z-index: 8;
+  position: relative;
+  margin: 45px 0 60px 0;
 }
 
 .app-footer {

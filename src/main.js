@@ -18,9 +18,17 @@ const routes = [
     component: Home,
     children: [
       {
+        name: 'home',
         path: '/',
         component: (resolve) => {
           require(['./views/home/homefocus'], resolve)
+        }
+      },
+      {
+        name: 'fastnews',
+        path: 'fastnews',
+        component: (resolve) => {
+          require(['./views/home/homefastnews'], resolve)
         }
       }
     ]
