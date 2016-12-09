@@ -1,7 +1,7 @@
 <template>
   <nav class="footer_nav">
     <dl v-for="(item, index) in navItems">
-      <router-link :to="item.path" :class="{nav_color: ($route.path === item.path)}">
+      <router-link :to="item.path[0]" :class="{nav_color: (item.path.indexOf($route.path) > -1)}">
         <dt class="iconfont" :class="item.iconClass"></dt>
         <dd v-text="item.text"></dd>
       </router-link>
