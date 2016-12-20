@@ -30,6 +30,13 @@ const routes = [
         component: (resolve) => {
           require(['./views/home/homefastnews'], resolve)
         }
+      },
+      {
+        name: 'earlyproject',
+        path: 'earlyproject',
+        component: (resolve) => {
+          require(['./views/home/earlyproject'], resolve)
+        }
       }
     ]
   },
@@ -52,9 +59,22 @@ const routes = [
     }
   }
 ]
-
+// 设定为history模式，切换路由时简单粗暴地将页面滚动到顶部
 const router = new VueRouter({
-  routes
+  mode: 'history',
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      if (to.hash) {
+        return {
+          selector: to.hash
+        }
+      }
+      return { x: 0, y: 0 }
+    }
+  }
 })
 
 /* eslint-disable no-new */

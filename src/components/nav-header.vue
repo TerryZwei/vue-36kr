@@ -6,7 +6,7 @@
       <ul>
         <li @click="navRoute($event, 'fastnews', 0)">快讯</li>
         <li @click="navRoute($event, 'home', 1)">推荐</li>
-        <li @click="navRoute($event, 'home', 2)">早期项目</li>
+        <li @click="navRoute($event, 'earlyproject', 2)">早期项目</li>
       </ul>
       <section class="header_indicator" :style="moving"></section>
     </div>
