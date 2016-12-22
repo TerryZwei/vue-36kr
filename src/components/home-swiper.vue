@@ -12,7 +12,6 @@
 <script>
 import { mapGetters } from 'vuex'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
-// require('vue-swipe/dist/vue-swipe.css')
 
 export default {
   data () {

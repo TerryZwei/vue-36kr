@@ -1,9 +1,10 @@
-import { GET_HOMESWIPERITEMS, GET_NEWSLIST, GET_FASTNEWS } from '../mutation-types'
+import { GET_HOMESWIPERITEMS, GET_NEWSLIST, GET_FASTNEWS, GET_EPROSWIPERITEMS } from '../mutation-types'
 
 const state = {
   homeSwiperItems: [],
   newsList: [],
-  fastNews: []
+  fastNews: [],
+  eprojectSwiperItems: []
 }
 
 const mutations = {
@@ -15,6 +16,15 @@ const mutations = {
   },
   [GET_FASTNEWS] (state) {
     state.fastNews = require('datas/fastnews').data.items
+  },
+  [GET_EPROSWIPERITEMS] (state) {
+    let newData = []
+    let data = require('datas/tagmanual').data
+    const arrlen = Math.ceil(data.length / 8)
+    for (let i = 0; i < arrlen; i++) {
+      newData.splice(i, 0, data.slice(i * 8, 8 * (i + 1)))
+    }
+    state.eprojectSwiperItems = newData
   }
 }
 

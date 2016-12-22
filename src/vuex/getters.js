@@ -10,5 +10,8 @@ export default {
   },
   fastNews ({ home }) {
     return home.fastNews
+  },
+  eprojectSwiperItems ({ home }) {
+    return home.eprojectSwiperItems
   }
 }

@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     navRoute (event, name, index) {
-      let x = event.target.clientWidth * 1.7
+      let x = event.target.clientWidth * 1.6
 
       if (index === 0) {
         x = -event.target.clientWidth * 1.7

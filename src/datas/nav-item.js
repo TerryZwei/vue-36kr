@@ -3,7 +3,7 @@ module.exports = [
     index: 0,
     link: '',
     iconClass: 'icon-home',
-    path: ['/', '/fastnews'],
+    path: ['/', '/fastnews', '/earlyproject'],
     text: '首页'
   },
   {
