@@ -5,9 +5,9 @@
       <div class="newslist_content">
         <p class="newlist_title">{{newItem.title}}</p>
         <div class="newlist_subcontent">
-          <span>{{newItem.column.name}}</span>
+          <span v-if="type === '2'">{{newItem.column.name}}</span>
           <span class="newlist_time" v-if="newItem.published_at">{{newItem.published_at | caculateTime}}</span>
-          <span class="newlist_collection" v-if="newItem.counters && newItem.counters.favorite > 0">{{newItem.counters.favorite}}人收藏</span>
+          <span class="newlist_collection" v-if="newItem.counters && newItem.counters.favorite > 0 && type === '2'">{{newItem.counters.favorite}}人收藏</span>
         </div>
       </div>
     </li>
@@ -15,17 +15,17 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
   name: 'homeList',
-  computed: {
-    ...mapGetters({
-      newsList: 'newsList'
-    })
+  data () {
+    return {
+      newsList: []
+    }
   },
+  props: ['getter', 'action', 'type'],
   created () {
-    this.$store.dispatch('getNewsList')
+    this.$store.dispatch(this.action)
+    this.newsList = this.$store.getters[this.getter]
   }
 }
 </script>

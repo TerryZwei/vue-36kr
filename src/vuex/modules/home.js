@@ -1,10 +1,11 @@
-import { GET_HOMESWIPERITEMS, GET_NEWSLIST, GET_FASTNEWS, GET_EPROSWIPERITEMS } from '../mutation-types'
+import { GET_HOMESWIPERITEMS, GET_NEWSLIST, GET_FASTNEWS, GET_EPROSWIPERITEMS, GET_POSTLIST } from '../mutation-types'
 
 const state = {
   homeSwiperItems: [],
   newsList: [],
   fastNews: [],
-  eprojectSwiperItems: []
+  eprojectSwiperItems: [],
+  postsList: []
 }
 
 const mutations = {
@@ -25,6 +26,9 @@ const mutations = {
       newData.splice(i, 0, data.slice(i * 8, 8 * (i + 1)))
     }
     state.eprojectSwiperItems = newData
+  },
+  [GET_POSTLIST] (state) {
+    state.postsList = require('datas/posts').data.items
   }
 }
 

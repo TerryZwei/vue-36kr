@@ -13,5 +13,11 @@ export default {
   },
   eprojectSwiperItems ({ home }) {
     return home.eprojectSwiperItems
+  },
+  postsList ({ home }) {
+    return home.postsList
+  },
+  navSelect ({ base }) {
+    return base.selectIndex
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <home-swiper></home-swiper>
-    <home-list></home-list>
+    <home-list action="getNewsList" getter="newsList" type="2"></home-list>
   </div>
 </template>
 

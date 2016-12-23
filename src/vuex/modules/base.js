@@ -1,12 +1,16 @@
-import { GET_NAVITEMS } from '../mutation-types'
+import { GET_NAVITEMS, SET_NAVINDEX } from '../mutation-types'
 
 const state = {
-  navItems: []
+  navItems: [],
+  selectIndex: 0
 }
 
 const mutations = {
   [GET_NAVITEMS] (state) {
     state.navItems = require('datas/nav-item')
+  },
+  [SET_NAVINDEX] (state, payload) {
+    state.selectIndex = payload.index
   }
 }
 

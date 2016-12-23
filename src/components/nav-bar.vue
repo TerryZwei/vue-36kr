@@ -1,6 +1,6 @@
 <template>
   <nav class="footer_nav">
-    <dl v-for="(item, index) in navItems">
+    <dl v-for="(item, index) in navItems" @click="jump(index)">
       <router-link :to="item.path[0]" :class="{nav_color: (item.path.indexOf($route.path) > -1)}">
         <dt class="iconfont" :class="item.iconClass"></dt>
         <dd v-text="item.text"></dd>
@@ -17,6 +17,12 @@ export default {
     return {
     }
   },
+  methods: {
+    // 点击跳转的时候用vuex管理选中状态
+    jump (index) {
+      this.$store.commit('SET_NAVINDEX', {index: index})
+    }
+  },
   computed: {
     ...mapGetters({
       navItems: 'navItems'
@@ -24,6 +30,28 @@ export default {
   },
   created () {
     this.$store.dispatch('getNavItems')
+    // 初始化获取当前的路由，确定当前的是哪个导航按钮
+    let sIndex = 0
+    const routerPath = window.location.pathname
+    switch (routerPath) {
+      case '/':
+      case '/fastnews':
+      case '/earlyproject':
+        sIndex = 0
+        break
+      case '/found':
+        sIndex = 1
+        break
+      case '/focus':
+        sIndex = 2
+        break
+      case '/me':
+        sIndex = 3
+        break
+      default:
+        sIndex = 0
+    }
+    this.$store.commit('SET_NAVINDEX', {index: sIndex})
   }
 }
 </script>

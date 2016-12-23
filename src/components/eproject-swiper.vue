@@ -1,22 +1,26 @@
 <template>
-  <swiper class="nav-swiper" :options="swiperOption">
-    <swiper-slide class="header_swiper" v-for="items in eprojectItems">
-      <dl class="nav-content" v-for="navItem in items">
-        <!-- <router-link :to="item.path[0]"> -->
-          <dt class="nav_icon">
-            <img :src="navItem.cover" />
-          </dt>
-          <dd class="nav_text" v-text="navItem.name"></dd>
-        <!-- </router-link> -->
-      </dl>
-    </swiper-slide>
-    <div class="swiper-pagination" slot="pagination"></div>
-  </swiper>
+  <div>
+    <swiper class="nav_swiper" :options="swiperOption">
+      <swiper-slide class="header_swiper" v-for="items in eprojectItems">
+        <dl class="nav_content" v-for="navItem in items">
+          <!-- <router-link :to="item.path[0]"> -->
+            <dt class="nav_icon">
+              <img :src="navItem.cover" />
+            </dt>
+            <dd class="nav_text" v-text="navItem.name"></dd>
+          <!-- </router-link> -->
+        </dl>
+      </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
+    <home-list class="posts_list" getter="postsList" action="getPostsList" type="1"></home-list>
+  </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import homeList from 'components/home-list'
 
 export default {
   data () {
@@ -29,7 +33,8 @@ export default {
   },
   components: {
     swiper,
-    swiperSlide
+    swiperSlide,
+    homeList
   },
   created () {
     this.$store.dispatch('getEproSwiperItems')
@@ -43,8 +48,8 @@ export default {
 </script>
 
 <style scoped lang="less">
-.nav-swiper {
-  height: 160px;
+.nav_swiper {
+  height: 200px;
 }
 .header_swiper {
   display: flex;
@@ -52,9 +57,9 @@ export default {
   justify-content: center;
   align-items: center;
   width: 50%;
-  height: 140px;
+  height: 180px;
 }
-.nav-content {
+.nav_content {
   margin: 0 0 0 1%;
   width: 20%;
   height: 45px;
@@ -72,5 +77,8 @@ export default {
   width: 100%;
   font-size: 12px;
   text-align: center;
+}
+.posts_list {
+  // margin-top: 10px;
 }
 </style>
