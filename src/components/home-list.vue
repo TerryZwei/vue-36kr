@@ -104,18 +104,7 @@ export default {
     color: #fff;
     font-size: 13px;
   }
-  .color1 {
-    color: #F9A63A;
-  }
-  .color2 {
-    color: #FF525A;
-  }
-  .color3 {
-    color: #3B83F0;
-  }
-  .color4 {
-    color: #262A2F;
-  }
+  
   //F9A63A,FF525A,3B83F0,262A2F
 }
 </style>
