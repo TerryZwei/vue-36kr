@@ -19,5 +19,8 @@ export default {
   },
   navSelect ({ base }) {
     return base.selectIndex
+  },
+  discoverList ({ discover }) {
+    return discover.discoverData
   }
 }

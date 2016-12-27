@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'iconfont';  /* project id 192499 */
-  src: url('//at.alicdn.com/t/font_t7ijvnr2phk3mcxr.eot');
-  src: url('//at.alicdn.com/t/font_t7ijvnr2phk3mcxr.eot?#iefix') format('embedded-opentype'),
-  url('//at.alicdn.com/t/font_t7ijvnr2phk3mcxr.woff') format('woff'),
-  url('//at.alicdn.com/t/font_t7ijvnr2phk3mcxr.ttf') format('truetype'),
-  url('//at.alicdn.com/t/font_t7ijvnr2phk3mcxr.svg#iconfont') format('svg');
+  src: url('//at.alicdn.com/t/font_luj74exdt3x1dcxr.eot');
+  src: url('//at.alicdn.com/t/font_luj74exdt3x1dcxr.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_luj74exdt3x1dcxr.woff') format('woff'),
+  url('//at.alicdn.com/t/font_luj74exdt3x1dcxr.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_luj74exdt3x1dcxr.svg#iconfont') format('svg');
 }
 
 .iconfont {
@@ -24,3 +24,5 @@
 .icon-home-search::before{ content: "\e600" }
 .icon-home-news-arrowdown::before{ content: "\e601"}
 .icon-home-news-arrowup::before{ content: "\e6a3"}
+.icon-discover-top10::before{ content: "\e602"}
+.icon-discover-title::before{ content: "\e618"}

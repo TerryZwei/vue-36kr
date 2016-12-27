@@ -14,6 +14,9 @@ const _filters = {
     } else {
       return '1天前'
     }
+  },
+  toFixCount (viewCount, val) {
+    return (+viewCount / 10000).toFixed(val)
   }
 }
 
