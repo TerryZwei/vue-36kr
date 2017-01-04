@@ -1,7 +1,7 @@
 <template>
   <div class="home_content">
     <keep-alive>
-      <router-view keep-alive></router-view>
+      <router-view></router-view>
     </keep-alive>
   </div>
 </template>

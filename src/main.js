@@ -19,7 +19,7 @@ const routes = [
     children: [
       {
         name: 'home',
-        path: '/',
+        path: '',
         component: (resolve) => {
           require(['./views/home/homefocus'], resolve)
         }
@@ -56,6 +56,12 @@ const routes = [
     path: '/focus',
     component: (resolve) => {
       require(['./views/focus'], resolve)
+    }
+  },
+  {
+    path: '/testview',
+    component: (resolve) => {
+      require(['./views/testview'], resolve)
     }
   }
 ]
