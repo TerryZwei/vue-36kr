@@ -1,5 +1,5 @@
 <template>
-  <div class="header_content">
+  <div class="header_content" v-show="($route.path.indexOf('articleview') <= 0)">
     <div v-if="selectNavIndex === 0" class="header_licon iconfont icon-home-calendar">
     </div>
     <div v-if="selectNavIndex === 0" class="header_ctitle">

@@ -1,17 +1,21 @@
 <template>
   <!-- swiper -->
-  <swiper class="swiper-content" :options="swiperOption">
-    <swiper-slide v-for="item in swipeItems">
-      <img :src="item.img"/>
-      <p>{{item.title}}</p>
-    </swiper-slide>
-    <div class="swiper-pagination" slot="pagination"></div>
-  </swiper>
+  <div @click="showAnimate()">
+    <swiper class="swiper-content" :options="swiperOption">
+      <swiper-slide v-for="item in swipeItems">
+        <img :src="item.img"/>
+        <p>{{item.title}}</p>
+      </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
+    <common-jumppage :mask-switch="maskShow"></common-jumppage>
+  </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
+import commonJumppage from 'components/common-jumppage'
 
 export default {
   data () {
@@ -23,8 +27,6 @@ export default {
         grabCursor: true,
         centeredSlides: true,
         slidesPerView: 'auto',
-        autoplay: 3000,
-        loop: true,
         coverflow: {
           rotate: 50,
           stretch: 0,
@@ -32,12 +34,14 @@ export default {
           modifier: 1,
           slideShadows: true
         }
-      }
+      },
+      maskShow: false
     }
   },
   components: {
     swiper,
-    swiperSlide
+    swiperSlide,
+    commonJumppage
   },
   computed: {
     ...mapGetters({
@@ -46,6 +50,15 @@ export default {
   },
   created () {
     this.$store.dispatch('getHomeSwiperItems')
+  },
+  methods: {
+    showAnimate () {
+      this.maskShow = true
+      setTimeout(() => {
+        this.$router.push({path: '/articleview'})
+        this.maskShow = false
+      }, 500)
+    }
   }
 }
 </script>
@@ -55,7 +68,7 @@ export default {
   margin-top: 20px;
 }
 .swiper-inner {
-  width: 100%;
+  width: 90%;
   height: 200px;
   padding-top: 50px;
   padding-bottom: 50px;

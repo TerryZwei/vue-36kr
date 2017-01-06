@@ -1,5 +1,5 @@
 <template>
-  <nav class="footer_nav">
+  <nav class="footer_nav" v-show="($route.path.indexOf('articleview') <= 0)">
     <dl v-for="(item, index) in navItems" @click="jump(index)">
       <router-link :to="item.path[0]" :class="{nav_color: (item.path.indexOf($route.path) > -1)}">
         <dt class="iconfont" :class="item.iconClass"></dt>

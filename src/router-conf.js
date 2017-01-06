@@ -48,9 +48,9 @@ const routes = [
     }
   },
   {
-    path: '/testview',
+    path: '/articleview',
     component: (resolve) => {
-      require(['./views/testview'], resolve)
+      require(['./views/articleview'], resolve)
     }
   }
 ]

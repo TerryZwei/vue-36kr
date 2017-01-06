@@ -3,7 +3,7 @@
     <header class="app-header" style="display:none;" v-show="appshow">
       <nav-header></nav-header>
     </header>
-    <section class="app-content" style="display:none;" v-show="appshow" id="content">
+    <section class="app-content" :class="($route.path.indexOf('articleview') > -1)? 'margin0' : 'margin_app'" style="display:none;" v-show="appshow" id="content">
       <transition name='view1'>
         <keep-alive>
           <router-view></router-view>
@@ -49,6 +49,12 @@ export default {
 </script>
 
 <style scoped>
+.margin0 {
+  margin: 0;
+}
+.margin_app {
+  margin: 45px 0 60px 0;
+}
 .app-header {
   position: fixed;
   top: 0;
@@ -60,7 +66,6 @@ export default {
 }
 .app-content {
   position: relative;
-  margin: 45px 0 60px 0;
 }
 
 .app-footer {

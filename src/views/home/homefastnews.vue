@@ -1,7 +1,7 @@
 <template>
   <div class="fastnews_container">
     <ul>
-      <li v-for="(news, index) in newsList" @click="showAnimate()">
+      <li v-for="(news, index) in newsList">
         <div class="news_time">{{news.published_at.split(' ')[1].substr(0,5)}}</div>
         <div class="news_content">
           <p class="news_title">{{news.title}}</p>
@@ -15,25 +15,20 @@
         </div>
       </li>
     </ul>
-    <transition name="fade">
-      <div class="an_mask" v-show="maskShow">
-      </div>
-    </transition>
-    <transition name="bounce">
-      <div v-show="maskShow" class="an_p"></div>
-    </transition>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+
 export default {
   name: 'homefastnews',
   data () {
     return {
-      switchObj: [],
-      maskShow: false
+      switchObj: []
     }
+  },
+  components: {
   },
   computed: {
     ...mapGetters({
@@ -52,13 +47,6 @@ export default {
       } else {
         this.switchObj.splice(index, 0, !this.switchObj[index])
       }
-    },
-    showAnimate () {
-      this.maskShow = true
-      setTimeout(() => {
-        this.$router.push({path: '/testview'})
-        this.maskShow = false
-      }, 500)
     }
   }
 }
@@ -111,44 +99,4 @@ a {
   display: inline-block;
   padding-top: 10px;
 }
-.an_mask {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-}
-.an_p{
-  position: fixed;
-  left: 0;
-  top: 0;
-  margin-top: -25px;
-  width: 100%;
-  height: 100%;
-  background: #fff;
-  z-index: 9999;
-}
-.bounce-enter-active {
-  animation: bounce-in .6s;
-}
-.bounce-leave-active {
-}
-@keyframes bounce-in {
-  0% {
-    top: 50%;
-    height: 50px;
-  }
-  20% {
-    top: 50%;
-    height: 50px;
-  }
-  100% {
-    top: 0;
-    height: 100%;
-  }
-}
-
-
 </style>
