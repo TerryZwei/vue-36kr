@@ -29,10 +29,11 @@ export default {
   z-index: 999;
 }
 .an_p{
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
-  margin-top: -44px;
+  bottom: 0;
+  right: 0;
   width: 100%;
   height: 100%;
   background: #fff;
@@ -45,11 +46,11 @@ export default {
 }
 @keyframes bounce-in {
   0% {
-    top: 50%-22px;
+    top: 50%;
     height: 50px;
   }
   20% {
-    top: 50%-22px;
+    top: 50%;
     height: 50px;
   }
   100% {

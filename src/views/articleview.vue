@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <article-bar></article-bar>
-  </div>
+  <article-bar></article-bar>
 </template>
 
 <script>

@@ -28,7 +28,7 @@ export default {
   border-top: 1px solid #F8F8F8;
   width: 100%;
   height: 60px;
-  z-index: 9999;
+  z-index: 99;
   line-height: 60px;
   text-align: center;
   li {
