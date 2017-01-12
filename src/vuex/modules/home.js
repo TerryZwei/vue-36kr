@@ -5,7 +5,8 @@ const state = {
   newsList: [],
   fastNews: [],
   eprojectSwiperItems: [],
-  postsList: []
+  postsList: [],
+  articleData: require('datas/articledata').data
 }
 
 const mutations = {

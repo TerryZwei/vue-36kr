@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header class="app-header" style="display:none;" v-show="appshow">
+    <header :class="($route.path.indexOf('articleview') > -1)? '' : 'app-header'" v-show="appshow">
       <nav-header></nav-header>
     </header>
     <section class="app-content" :class="($route.path.indexOf('articleview') > -1)? 'margin0' : 'margin_app'" style="display:none;" v-show="appshow" id="content">
