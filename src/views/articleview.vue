@@ -2,12 +2,14 @@
   <div class="article_content">
     <transition name="fade">
       <div v-show="articleShow">
-        <img :src="articleData.cover"/>
-        <p class="article_title" v-text="articleData.title"></p>
-        <div class="article_underline"></div>
+        <div class="article_header">
+          <img :src="articleData.cover" width="100%"/>
+          <p class="article_title" v-text="articleData.title"></p>
+        </div>
         <section class="article_sub">
           <p><span v-text="articleData.user.name"></span><span>{{articleData.published_at | caculateTime}}</span></p>
           <p v-html="articleData.summary"></p>
+          <div class="article_underline"></div>
           <p v-html="articleData.content"></p>
         </section>
         <article-bar></article-bar>
@@ -56,6 +58,9 @@ export default {
   section{
     margin: 0 20px;
   }
+  .article_header {
+    position: relative;
+  }
   .icon-article-loading {
     position: fixed;
     top: 50%;
@@ -75,16 +80,14 @@ export default {
   }
 }
 .article_underline{
-  position: absolute;
-  top: 580px;
-  left: 20px;
+  margin-top: 30px;
   width: 60px;
   height: 4px;
   background: #E1E1E1;
 }
 .article_title {
   position: absolute;
-  top: 230px;
+  bottom: -40px;
   left: 0;
   right: 10px;
   height: 80px;
@@ -100,6 +103,7 @@ export default {
     color: #999;
     font-size: 9px;
     line-height: 26px;
+    text-align: justify;
   }
   p:nth-child(1) {
     margin-top: 70px;
@@ -110,8 +114,8 @@ export default {
   p:nth-child(2) {
     margin-top: 30px;
   }
-  p:nth-child(3) {
-    margin-top: 70px;
+  p:nth-child(4) {
+    margin-top: 30px;
     color: #3D3D3D;
     font-size:10px;
     line-height: 28px;
